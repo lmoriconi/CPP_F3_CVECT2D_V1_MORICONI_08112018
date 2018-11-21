@@ -1,71 +1,39 @@
 #include <iostream>
-#include <stdlib.h>
 #include <SDL.h>
-#include "cVect2D.h"
+#include <SDL_image.h>
+#include "cGame.h"
 
+int main(int argc, char * argv[]) {
 
-using namespace std;
+	const int fps = 60;
+	const int frameDelay = 1000 / fps;
 
-int main(int argc, char * argv[])
-{
+	Uint32 frameStart;
+	int frameTime;
 
-	//Je déclare deux vecteurs : u et, auxquels je passe des paramètres
-	CVect2D u(2.2f, 3.3f);
-	CVect2D v(1.1f, 4.4f);
+	CGame game;
 
-	
-	/**** Addition vectorielle ****/
-	CVect2D uv;
-	uv.sumVect(u, v);
+	game.init("Lenny's Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
 
-	//Affichage
-	cout << "**** Addition vectorielle ****" << endl;
-	cout << uv.getVectX() << endl;
-	cout << uv.getVectY() << endl;
+	//Boucle de jeu
+	while (game.running()) {
 
+		frameStart = SDL_GetTicks();
 
-	/**** Soustraction vectorielle ****/
-	uv.subVect(u, v);
+		game.handleEvents();
+		game.update();
+		game.render();
 
-	//Affichage
-	cout << "**** Soustraction vectorielle ****" << endl;
-	cout << uv.getVectX() << endl;
-	cout << uv.getVectY() << endl;
+		//Gestion des FPS
+		frameTime = SDL_GetTicks() - frameStart;
 
+		if (frameDelay > frameTime) {
 
-	/**** Produit vectoriel de deux vecteurs ****/
-	uv.multVect(u, v);
+			SDL_Delay(frameDelay - frameTime);
+		}
+	}
 
-	//Affichage
-	cout << "**** Multiplication vectorielle ****" << endl;
-	cout << uv.getVectX() << endl;
-	cout << uv.getVectY() << endl;
-
-
-	/**** Multiplication d'un vecteur par un scalaire ****/
-	float r = 10.0f;
-	u.multScal(r);
-	
-	//Affichage
-	cout << "**** Multiplication d'un vecteur par un scalaire ****" << endl;
-	cout << u.getVectX() << endl;
-	cout << u.getVectY() << endl;
-
-	/**** Produit des normes ****/
-	//Je réinitialise u et v à leurs paramètres d'origine
-	u.setVectX(2.2f);
-	u.setVectY(3.3f);
-	v.setVectX(1.1f);
-	v.setVectY(4.4f);
-
-	//Je déclare un réel qui recevra mon produit scalaire
-	float norme = 0.0f;
-
-	norme = u.multNorm(v);
-
-	//Affichage
-	cout << "**** Produit des normes ****" << endl;
-	cout << norme << endl;
+	game.clean();
 
 	return 0;
 }

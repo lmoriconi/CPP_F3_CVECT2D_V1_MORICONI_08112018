@@ -34,4 +34,6 @@ public:
 	void multScal(float r);
 	float multNorm(CVect2D v);
 
+	//Destructeur
+	~CVect2D();
 };
