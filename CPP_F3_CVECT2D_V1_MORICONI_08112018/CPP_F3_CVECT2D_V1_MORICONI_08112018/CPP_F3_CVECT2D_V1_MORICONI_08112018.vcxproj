@@ -70,12 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\Projets\Projets_Visual_Studio\CPP_F3_CVECT2D_V1_MORICONI_08112018\SDL2_image-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Projets\Projets_Visual_Studio\CPP_F3_CVECT2D_V1_MORICONI_08112018\SDL2_image-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\SDL2_image-2.0.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\SDL2_image-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>E:\Projets\Projets_Visual_Studio\CPP_F3_CVECT2D_V1_MORICONI_08112018\SDL2_image-2.0.4\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Projets\Projets_Visual_Studio\CPP_F3_CVECT2D_V1_MORICONI_08112018\SDL2_image-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>..\..\SDL2_image-2.0.4\include;$(IncludePath)</IncludePath>
+    <LibraryPath>..\..\SDL2_image-2.0.4\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
